@@ -1,7 +1,8 @@
 require("ts-node/register");
 import { DATABASE_URL } from "./src/utils/envConfig";
+import { Knex } from "knex";
 
-module.exports = {
+const knexConfig: { [key: string]: Knex.Config } = {
   development: {
     client: "mysql",
     connection: DATABASE_URL,
@@ -11,3 +12,5 @@ module.exports = {
     },
   },
 };
+
+export default knexConfig;
